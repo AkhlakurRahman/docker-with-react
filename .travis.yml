@@ -3,3 +3,5 @@ services:
   - docker
 before_install:
   - docker build -t akrahman/docker-with-react -f Dockerfile.dev .
+script:
+  - docker container run -e CI=true akrahman/docker-with-react npm run test -- --coverage
